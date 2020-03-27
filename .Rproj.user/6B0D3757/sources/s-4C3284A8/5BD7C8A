@@ -1,0 +1,33 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1585198596009.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "5BD7C8A",
+    "lastKnownWriteTime" : 2899509393834210420,
+    "last_content_update" : 1585198596009,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "BC2ED352",
+        "caption" : "death_df",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=death_df&cache_key=BC2ED352",
+        "displayedObservations" : "14272",
+        "environment" : "",
+        "expression" : "death_df",
+        "object" : "death_df",
+        "preview" : "0",
+        "totalObservations" : "14272",
+        "variables" : "6"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

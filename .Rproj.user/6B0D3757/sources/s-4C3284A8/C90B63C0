@@ -1,0 +1,33 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1585191494792.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "C90B63C0",
+    "lastKnownWriteTime" : 7809067431361782538,
+    "last_content_update" : 1585191494792,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "8EC80A1D",
+        "caption" : "jhu_df",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=jhu_df&cache_key=8EC80A1D",
+        "displayedObservations" : "64",
+        "environment" : "",
+        "expression" : "jhu_df",
+        "object" : "jhu_df",
+        "preview" : "0",
+        "totalObservations" : "64",
+        "variables" : "2"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}
