@@ -5,6 +5,7 @@ library(tidyverse)
 library(tibble)
 library(lubridate)
 library(fs)
+library(janitor)
 
 path = ("COVID-19/csse_covid_19_data/csse_covid_19_daily_reports/*.csv")
 #pattern =("*.csv")
@@ -53,19 +54,40 @@ death_df = data %>%
   mutate(State = coalesce(State,Province_State)) %>% 
   select(-Province_State) %>% 
   rename(Province_State = State) %>% 
-  select(Province_State, everything())
+  select(Province_State, everything()) %>% 
+  group_by(Province_State, Date) %>% 
+  distinct(Date, .keep_all=TRUE)
+
+death_df[is.na(death_df)]=0
+
+us_time_series_deaths = death_df %>%
+  select(Date, Province_State, Deaths) %>%
+  group_by(Province_State, Date) %>%
+  distinct(Date, .keep_all=TRUE) %>% 
+  pivot_wider(names_from = "Date", values_from = "Deaths") %>% 
+  adorn_totals(where="row")
+
+us_time_series_confirmed = death_df %>%
+  select(Date, Province_State, Confirmed) %>%
+  group_by(Province_State, Date) %>%
+  distinct(Date, .keep_all=TRUE) %>% 
+  pivot_wider(names_from = "Date", values_from = "Confirmed") %>% 
+  adorn_totals(where="row")
+
+us_time_series_recovered = death_df %>%
+  select(Date, Province_State, Recovered) %>%
+  group_by(Province_State, Date) %>%
+  distinct(Date, .keep_all=TRUE) %>% 
+  pivot_wider(names_from = "Date", values_from = "Recovered") %>% 
+  adorn_totals(where="row")
 
 write.csv(death_df, file="covid_us_daily_report.csv")
+write.csv(us_time_series_recovered, file="us_time_series_recovered.csv")
+write.csv(us_time_series_confirmed, file="us_time_series_confirmed.csv")
+write.csv(us_time_series_deaths, file="us_time_series_deaths.csv")
 
-# us_time_series_deaths = death_df %>% 
-#   select(Date, State, Deaths) %>% 
-#   group_by(State, Date, Deaths) %>% 
-#   mutate(row = row_number()) %>% 
-#   pivot_wider(id_cols = "State", names_from = "Date", values_from = "Deaths") %>% 
-#   select(-row)
-# 
-# g <- ggplot(death_df, aes(x=Date, y=Deaths, colour=State)) +
-#   geom_path(na.rm=TRUE) + scale_y_log10()
+# g <- ggplot(us_time_series_confirmed, aes(x=Date, y=Confirmed, colour=Province_State)) +
+#   geom_line(na.rm=TRUE) + scale_y_log10()
 # g
 # 
 # which(duplicated(death_df))
