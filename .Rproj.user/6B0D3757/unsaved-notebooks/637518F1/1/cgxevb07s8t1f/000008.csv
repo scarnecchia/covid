@@ -1,0 +1,2 @@
+"0","g + geom_rangeframe() + theme_tufte(base_size = 11, base_family = ""serif"", ticks = TRUE) +"
+"0","geom_dl(aes(label = state), method = list(dl.trans(x = x + .2), ""last.points"", fontsize=""8"", fontfamily=""serif""))"

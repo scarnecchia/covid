@@ -1,0 +1,25 @@
+---
+title: "Covid Graphs"
+author: "Daniel P. Scarnecchia"
+date: "4/2/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r covid_2, echo=FALSE}
+g + geom_rangeframe() + theme_tufte(base_size = 11, base_family = "serif", ticks = TRUE) +
+geom_dl(aes(label = state), method = list(dl.trans(x = x + .2), "last.points", fontsize="8", fontfamily="serif"))
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r , echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
